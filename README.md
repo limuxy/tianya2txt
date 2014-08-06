@@ -10,6 +10,8 @@ v0.1
 保存脱水后的天涯帖子到txt文件
 
 ##用法
+依赖python2
+
 依赖BeautifulSoup4，所以需要先`pip install beautifulsoup4`
 
 clone或直接下载后：`chmod +x tianya2txt.py`
