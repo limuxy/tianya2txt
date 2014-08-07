@@ -48,9 +48,8 @@ def get_page_content(params):
             post_content =  post.text
             if re.search(r'\d+-\d+-\d+\s\d+:\d+:\d+', post_content) != None:
                 continue
-            post_content = re.sub(r'\t+', '', post_content)
-            post_content.replace('<br>','')
-            post_content.replace('</br>','')
+            post_content = re.sub(r'\t+|(<br>)+|(<\/br>)+', '', post_content)
+            post_content = re.sub(u'\u3000+', "\n", post_content)
             page_content += post_content
     else:
         reply_id = 0
