@@ -17,11 +17,12 @@ def get_soup(url):
     return soup
 
 def get_post_info(url):
+    start_page = re.search(r'-(\d+).shtml', url).group(1)
     url = url = re.sub(r'-\d+.shtml', '-1.shtml', url)
     soup = get_soup(url)
     #get post subject as file_name
     subject = soup.find('span', {'class':'s_title'}).findChildren('span')[0].text
-    file_name = subject.strip(' ')+'.txt'
+    file_name = subject.strip(' ')+start_page+'.txt'
     file_name = file_name.replace(' ','')
     file_name = file_name.replace('?','')
     file_name = file_name.replace('/','')
